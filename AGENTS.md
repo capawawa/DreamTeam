@@ -10,6 +10,13 @@ This document defines the AI agents supporting **The Dreamteam Chronicles: Festi
 
 ---
 
+## Document Status
+
+- **Scope:** This AGENTS.md applies to the entire repository unless superseded by a more specific AGENTS.md in a subdirectory.
+- **Review:** Last verified for accuracy and completeness during the current audit.
+
+---
+
 ## Agent Roster
 
 ### 1. **Canon Keeper**
