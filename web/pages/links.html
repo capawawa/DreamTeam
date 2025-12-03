@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Links — DreamTeam</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <!-- retro.css loaded by Retro Mode toggle -->
+  <style>
+    .links-wrap { display:flex; flex-direction:column; gap:16px }
+    .roll { border:2px solid var(--border); border-radius:10px; padding:14px; background:rgba(8,12,24,0.7) }
+    .roll h2 { margin-top:0 }
+    .link-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px }
+    @media (max-width:900px){ .link-grid { grid-template-columns: 1fr } }
+    .roll a { display:inline-block; padding:8px 10px; border-radius:8px; border:1px solid rgba(102,204,255,0.25); text-decoration:none }
+    .roll a:hover { background: rgba(102,204,255,0.12) }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <div class="title">DreamTeam — 90s Links Roll</div>
+      <div class="tools">
+        <button id="retroToggle" class="btn" title="Toggle Retro Mode">Retro Mode</button>
+        <a class="btn" href="../index.html">Home</a>
+      </div>
+    </header>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Bookmark this page • The coolest links of 1997 are HERE • Under Construction • Be kind, rewind</span>
+        <span>Bookmark this page • The coolest links of 1997 are HERE • Under Construction • Be kind, rewind</span>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="nav">
+        <h2>Jump</h2>
+        <ul id="toc">
+          <li><a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a></li>
+          <li><a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book_TOC.md">TOC</a></li>
+          <li><a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book_Structure.md">Structure</a></li>
+          <li><a href="viewer.html?src=docs/canon/Canon_Rules.md">Canon & Lore</a></li>
+          <li><a href="viewer.html?src=docs/characters/Character_Bible.md">Characters</a></li>
+          <li><a href="viewer.html?src=docs/setting/Firedog_Setting.md">World & Setting</a></li>
+          <li><a href="viewer.html?src=outline/Series_Outline.md">Series Outline</a></li>
+          <li><a href="viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a></li>
+          <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="handle">Link-O-Rama</div>
+          <div class="tagline">The web is our oyster.</div>
+          <div class="badges">
+            <span class="badge">WebRing</span>
+            <span class="badge">Frames</span>
+            <span class="badge">GIFs</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="links-wrap">
+        <h1>Links</h1>
+        <p class="note">A 90s-style roll with internal cross-links into the Markdown viewer.</p>
+
+        <div class="roll">
+          <div class="under">
+            <span class="retro-under-construction">UNDER CONSTRUCTION</span>
+          </div>
+          <h2>Start Here</h2>
+          <div class="link-grid">
+            <a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a>
+            <a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book_TOC.md">Table of Contents</a>
+            <a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book_Structure.md">Book Structure</a>
+            <a href="viewer.html?src=docs/research/DreamTeam_Research_Inventory.md">Research Brief</a>
+          </div>
+        </div>
+
+        <div class="roll">
+          <h2>Canon & Narrative</h2>
+          <div class="link-grid">
+            <a href="viewer.html?src=docs/canon/Canon_Rules.md">Canon Rules</a>
+            <a href="viewer.html?src=docs/narrative/Narrative_Structure.md">Narrative Structure</a>
+            <a href="viewer.html?src=docs/characters/Character_Bible.md">Character Bible</a>
+            <a href="viewer.html?src=docs/setting/Firedog_Setting.md">World & Setting</a>
+            <a href="viewer.html?src=docs/perception/Perception_Details.md">Perception Details</a>
+          </div>
+        </div>
+
+        <div class="roll">
+          <h2>Encounters & Missions</h2>
+          <div class="link-grid">
+            <a href="viewer.html?src=docs/encounters/Bands_and_Encounters.md">Bands & Encounters</a>
+            <a href="viewer.html?src=docs/missions/Festival_Missions.md">Festival Missions</a>
+            <a href="viewer.html?src=docs/man-in-red/ManInRed_Dossier.md">Man in Red — Dossier</a>
+            <a href="viewer.html?src=docs/man-in-red/ManInRed_Encounter.md">Man in Red — Encounter</a>
+          </div>
+        </div>
+
+        <div class="roll">
+          <h2>Outline & Scripts</h2>
+          <div class="link-grid">
+            <a href="viewer.html?src=outline/Series_Outline.md">Series Outline</a>
+            <a href="viewer.html?src=outline/Issue01_BeatSheet.md">Beat Sheet 01</a>
+            <a href="viewer.html?src=outline/Issue02_BeatSheet.md">Beat Sheet 02</a>
+            <a href="viewer.html?src=outline/Issue03_BeatSheet.md">Beat Sheet 03</a>
+            <a href="viewer.html?src=outline/Issue04_BeatSheet.md">Beat Sheet 04</a>
+            <a href="viewer.html?src=outline/Issue05_BeatSheet.md">Beat Sheet 05</a>
+            <a href="viewer.html?src=scripts/format/Comic_Script_Format.md">Comic Script Format</a>
+            <a href="viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a>
+          </div>
+        </div>
+
+        <div class="roll">
+          <h2>Production & Extras</h2>
+          <div class="link-grid">
+            <a href="viewer.html?src=production/Production_Plan.md">Production Plan</a>
+            <a href="viewer.html?src=legal/Collaboration_Agreement_Template.md">Legal Template</a>
+            <a href="viewer.html?src=docs/extras/Supplemental_Materials_Plan.md">Extras / Supplemental Materials</a>
+          </div>
+        </div>
+
+        <hr />
+
+        <footer>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+            <div>
+              <span class="badge">Best viewed in Netscape 3.0!</span>
+              <span class="badge">Member of the WebRing</span>
+              <a class="badge email-gif" href="mailto:hello@example.com">Email Us</a>
+            </div>
+            <div>
+              <span>Last updated: <span id="last-updated"></span></span>
+            </div>
+            <div id="hit-counter" class="seven-seg" title="Site hits">000000</div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/hit-counter.js"></script>
+</body>
+</html>

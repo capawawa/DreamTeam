@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+.roo
+out/
+browser-tools-extension/
+
+# Documentation
+README.md
+LICENSE
+
+# Binary files we don't need in container
+*.pdf
+*.zip

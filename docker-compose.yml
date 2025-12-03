@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  dreamteam-web:
+    build: .
+    container_name: dreamteam-hub
+    ports:
+      - "8080:80"
+    volumes:
+      # Mount local files for development (optional - comment out for production)
+      - ./web:/usr/share/nginx/html/web
+      - ./docs:/usr/share/nginx/html/docs
+      - ./outline:/usr/share/nginx/html/outline
+      - ./scripts:/usr/share/nginx/html/scripts
+      - ./production:/usr/share/nginx/html/production
+      - ./legal:/usr/share/nginx/html/legal
+      - ./pitch:/usr/share/nginx/html/pitch
+    restart: unless-stopped
+    environment:
+      - TZ=America/New_York

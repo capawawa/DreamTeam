@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guestbook — DreamTeam</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <!-- retro.css will be injected by Retro Mode from site.js -->
+  <style>
+    .wrap { display:flex; flex-direction:column; gap:14px }
+    .gb-card { border:2px solid var(--border); border-radius:10px; padding:14px; background:rgba(8,12,24,0.7) }
+    .gb-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px }
+    @media (max-width: 900px){ .gb-grid { grid-template-columns: 1fr } }
+    .under { margin: 8px 0 16px }
+    .form-row { display:flex; gap:10px; align-items:center; flex-wrap:wrap }
+    .form-row input, .form-row textarea {
+      width: 100%; max-width: 520px; padding:10px 12px; border:2px solid var(--border);
+      background: rgba(8,12,24,0.85); color: var(--fg); border-radius: 10px;
+    }
+    textarea { min-height: 90px }
+    table { width:100%; border-collapse: collapse }
+    th, td { padding: 8px 10px; }
+    #guestbook-empty { display:none }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <div class="title">DreamTeam — Guestbook</div>
+      <div class="tools">
+        <button id="retroToggle" class="btn" title="Toggle Retro Mode">Retro Mode</button>
+        <a class="btn" href="../index.html">Home</a>
+      </div>
+    </header>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Sign our totally authentic 90s Guestbook • Leave your vibes • Tell us your favorite doc</span>
+        <span>Under Construction • Netscape optimized • GIFs loading…</span>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="nav">
+        <h2>Quick Docs</h2>
+        <ul id="toc">
+          <li><a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a></li>
+          <li><a href="viewer.html?src=docs/canon/Canon_Rules.md">Canon & Lore</a></li>
+          <li><a href="viewer.html?src=docs/characters/Character_Bible.md">Characters</a></li>
+          <li><a href="viewer.html?src=outline/Series_Outline.md">Series Outline</a></li>
+          <li><a href="viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="handle">Geocities Zone</div>
+          <div class="tagline">Please sign our book ✍️</div>
+          <div class="badges">
+            <span class="badge">No Frames</span>
+            <span class="badge">No Flash</span>
+            <span class="badge">Pure HTML</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="wrap">
+        <h1>Guestbook</h1>
+        <p class="note">Client‑side only (localStorage). Entries are stored in your browser.</p>
+
+        <div class="gb-card">
+          <h2>Feedback</h2>
+          <p>Have a question or spotted an issue? Send us a note with context.</p>
+          <div class="form-row" style="gap:8px">
+            <a id="feedback-email" class="btn" href="#">Email us your question</a>
+          </div>
+          <!-- TODO (GitHub): Add “Open an Issue” link pointing to repository when ready -->
+        </div>
+
+        <div class="gb-grid">
+          <div class="gb-card">
+            <h2>Sign the Book</h2>
+            <form id="gb-form">
+              <div class="form-row">
+                <label for="gb-name">Name</label>
+                <input id="gb-name" type="text" placeholder="Your name (optional)" />
+              </div>
+              <div class="form-row">
+                <label for="gb-message">Message</label>
+                <textarea id="gb-message" placeholder="Leave us a note…"></textarea>
+              </div>
+              <div class="form-row" style="gap:8px">
+                <button class="btn" type="submit">Sign ✍️</button>
+                <button class="btn" type="button" id="gb-clear" title="Clear only on this device">Clear All (this browser)</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="gb-card">
+            <h2>Wall</h2>
+            <div id="guestbook-empty" class="under">
+              <span class="retro-under-construction">UNDER CONSTRUCTION</span>
+              <p class="note">No entries yet. Be the first!</p>
+            </div>
+            <table id="guestbook-table">
+              <thead>
+                <tr><th>Name</th><th>Message</th><th>Date</th></tr>
+              </thead>
+              <tbody id="guestbook-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr />
+
+        <footer>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+            <div>
+              <span class="badge">Best viewed in Netscape 3.0!</span>
+              <span class="badge">Member of the WebRing</span>
+              <a class="badge email-gif" href="mailto:hello@example.com">Email Us</a>
+            </div>
+            <div>
+              <span>Last updated: <span id="last-updated"></span></span>
+            </div>
+            <div id="hit-counter" class="seven-seg" title="Site hits">000000</div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/guestbook.js"></script>
+  <script src="../assets/js/hit-counter.js"></script>
+  <script>
+    // Build mailto with current URL context (including hash if any)
+    (function(){
+      const a = document.getElementById('feedback-email');
+      if(!a) return;
+      const ctx = encodeURIComponent('Context: ' + location.href);
+      const subject = encodeURIComponent('DreamTeam Question');
+      a.href = `mailto:?subject=${subject}&body=${ctx}`;
+    })();
+  </script>
+</body>
+</html>

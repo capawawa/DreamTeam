@@ -1,0 +1,44 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.roo/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node modules (if any future JS tooling is added)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build output
+out/
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker (optional - uncomment if you don't want to track volumes)
+# docker-compose.override.yml
+
+# Development
+.cache/

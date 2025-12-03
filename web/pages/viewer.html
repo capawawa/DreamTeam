@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markdown Viewer</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/print.css" media="print" />
+  <link rel="icon" href="/favicon.ico" />
+  <!-- retro.css will be injected by Retro Mode -->
+  <style>
+    .viewer-header {
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+      border:2px solid var(--border); border-radius:10px; padding:10px; background:rgba(8,12,24,0.7);
+      margin-bottom: 8px; position: sticky; top: 108px; z-index: 3;
+    }
+    .utility-bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center }
+    .utility-bar .search-wrap { display:flex; gap:6px; align-items:center }
+    .meta { font-size: 12px; color: var(--muted); }
+    .md-container { border:2px solid var(--border); border-radius:10px; padding:16px; background:rgba(8,12,24,0.7) }
+    .md-container h1, .md-container h2, .md-container h3 { scroll-margin-top: 110px }
+    .toolbar { display:flex; gap:8px; align-items:center; }
+    .note { font-size: 12px; color: var(--muted); }
+    .error { color: #ff8080; font-weight: 700 }
+    .raw-link { text-decoration: none }
+    #lineBanner { margin: 4px 0 12px; font-size: 12px; color: var(--muted) }
+    /* Export view (hide chrome/sidebars) */
+    body.export-view header, body.export-view .marquee, body.export-view .aside, body.export-view .viewer-header, body.export-view footer { display:none !important }
+    body.export-view main { padding-top: 12px }
+    @media (max-width: 900px){
+      .utility-bar { flex-direction: column; align-items: stretch }
+      .utility-bar .search-wrap { width: 100% }
+      .utility-bar input[type="text"] { width: 100% }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <div class="title">DreamTeam — Markdown Viewer</div>
+      <div class="tools">
+        <button id="retroToggle" class="btn" title="Toggle Retro Mode">Retro Mode</button>
+        <a id="rawLink" class="btn raw-link" href="#" target="_blank" rel="noopener">View raw</a>
+      </div>
+    </header>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Load any DreamTeam markdown via ?src=relative-path • Example: ?src=docs/bible/DreamTeam_Writers_Book.md</span>
+        <span>Links to .md are auto-routed back into the viewer • Keep it retro!</span>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="nav">
+        <h2>Quick Links</h2>
+        <ul id="toc">
+          <li><a href="../index.html">Home Hub</a></li>
+          <li><a href="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a></li>
+          <li><a href="viewer.html?src=docs/canon/Canon_Rules.md">Canon & Lore</a></li>
+          <li><a href="viewer.html?src=docs/characters/Character_Bible.md">Characters</a></li>
+          <li><a href="viewer.html?src=outline/Series_Outline.md">Series Outline</a></li>
+          <li><a href="viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a></li>
+          <li><a href="viewer.html?src=docs/research/DreamTeam_Research_Inventory.md">Research Brief</a></li>
+        </ul>
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="handle">Viewer</div>
+          <div class="tagline">Rendered client‑side. No CDN needed.</div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="viewer-header">
+        <div class="utility-bar">
+          <button id="visualToggle" class="btn" title="Toggle Pro/Retro Mode">Pro Mode</button>
+          <button id="exportHtml" class="btn" title="Open HTML-only view (new tab)">Export HTML</button>
+          <button id="printPdf" class="btn" title="Print to PDF">Print to PDF</button>
+          <a id="rawLink2" class="btn raw-link" href="#" target="_blank" rel="noopener">View raw</a>
+          <div class="search-wrap">
+            <input id="inpageSearch" type="text" placeholder="Search headings…" />
+            <button id="inpageSearchBtn" class="btn">Search</button>
+          </div>
+          <button id="checkLinksBtn" class="btn" title="Check .md links">Check Links</button>
+          <select id="quickActions" class="btn" title="Quick Actions">
+            <option value="">Quick Actions…</option>
+            <option value="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Canon One‑Pager</option>
+            <option value="viewer.html?src=scripts/format/Comic_Script_Format.md">Script Format Checklist</option>
+            <option value="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md#h-issue-skeleton">Issue Skeleton</option>
+            <option value="viewer.html?src=docs/bible/DreamTeam_Writers_Book.md#h-ambiguity-counter">Ambiguity Counter</option>
+            <option value="viewer.html?src=production/Production_Plan.md">Submission Matrix</option>
+          </select>
+        </div>
+        <div>
+          <div class="meta">Source: <code id="srcPath">—</code></div>
+          <div id="lineBanner" class="note"></div>
+        </div>
+      </div>
+
+      <div id="mdOutput" class="md-container">
+        <p class="note">Loading…</p>
+      </div>
+
+      <hr />
+      <footer>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+          <div>
+            <span class="badge">Best viewed in Netscape 3.0!</span>
+            <span class="badge">Member of the WebRing</span>
+            <a class="badge email-gif" href="mailto:hello@example.com">Email Us</a>
+          </div>
+          <div>
+            <span>Last updated: <span id="last-updated"></span></span>
+          </div>
+          <div id="hit-counter" class="seven-seg" title="Site hits">000000</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Simple query parsing
+    function getParams(){
+      const p=new URLSearchParams(location.search);
+      const src=p.get('src')||'';
+      // MARKDOWN RULES line support e.g. docs/canon/Canon_Rules.md:34
+      let line=null;
+      const colonIdx=src.lastIndexOf(':');
+      let pureSrc=src;
+      if(colonIdx>0 && /^\d+$/.test(src.slice(colonIdx+1))){
+        pureSrc=src.slice(0,colonIdx);
+        line=src.slice(colonIdx+1);
+      }
+      return {src:pureSrc,line};
+    }
+    (function initMeta(){
+      const {src}=getParams();
+      const srcEl=document.getElementById('srcPath');
+      srcEl.textContent=src||'—';
+      const raw=document.getElementById('rawLink');
+      // From /web/pages/viewer.html to repo root path: prefix ../
+      raw.href = src ? ('../'+src) : '#';
+    })();
+  </script>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/markdown-viewer.js"></script>
+  <script src="../assets/js/hit-counter.js"></script>
+</body>
+</html>

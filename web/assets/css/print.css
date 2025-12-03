@@ -1,0 +1,41 @@
+/* Print CSS: high-contrast, Pro-like, no retro chrome */
+@media print {
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --muted: #333333;
+    --link: #0000cc;
+    --border: #cccccc;
+  }
+  html, body { background: #ffffff !important; color: #000 !important; }
+  body, main { font-size: 12pt !important; line-height: 1.6 !important; }
+  /* Remove backgrounds, tiles, animations, and chrome */
+  body::before,
+  header,
+  .marquee,
+  .aside,
+  footer,
+  .viewer-header,
+  #toTop,
+  .badge,
+  .profile-card,
+  .player,
+  .top8,
+  .start-here { display: none !important; }
+  main { background: #fff !important; padding: 0 !important; box-shadow: none !important; }
+  * { background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+  /* Links: keep visible and underlined */
+  a, a:visited { color: #0000cc !important; text-decoration: underline !important; }
+  code, pre { border: 1px solid #ddd !important; background: #fafafa !important; }
+  /* Headings spacing */
+  h1 { margin: 0 0 10pt 0; font-size: 18pt; }
+  h2 { margin: 14pt 0 6pt 0; font-size: 14pt; border-bottom: 1px solid #ddd; padding-bottom: 4pt; }
+  h3 { margin: 10pt 0 4pt 0; font-size: 12pt; }
+  /* Ensure content fits page */
+  img, table, pre, code, blockquote { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+  /* Containers */
+  .md-container { border: none !important; padding: 0 !important; }
+  /* Ensure anchors work in print preview */
+  .anchor { display: none !important; }
+}

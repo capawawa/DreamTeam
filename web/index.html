@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DreamTeam 90s Home Hub</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <!-- retro.css is injected by JS toggle to simulate a 90s theme -->
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <div class="title">DreamTeam Writer’s Book — 90s Home Hub</div>
+      <div class="tools">
+        <button id="retroToggle" class="btn" title="Toggle Retro Mode">Retro Mode</button>
+        <button onclick="window.print()" class="btn" title="Print to PDF">Print</button>
+      </div>
+    </header>
+
+    <!-- 90s marquee headline -->
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>WELCOME TO THE DREAMTEAM PORTAL • BEST VIEWED IN NETSCAPE 3.0 • BOOKMARK US!</span>
+        <span>WELCOME TO THE DREAMTEAM PORTAL • BEST VIEWED IN NETSCAPE 3.0 • BOOKMARK US!</span>
+      </div>
+    </div>
+
+    <!-- Sidebar with big retro buttons -->
+    <aside class="aside">
+      <div class="nav">
+        <h2>Navigation</h2>
+        <ul id="toc">
+          <!-- Start Here / Primary -->
+          <li><a href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a></li>
+          <li><a href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book_TOC.md">TOC</a></li>
+          <li><a href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book_Structure.md">Structure</a></li>
+          <!-- Canon & World -->
+          <li><a href="pages/viewer.html?src=docs/canon/Canon_Rules.md">Canon & Lore</a></li>
+          <li><a href="pages/viewer.html?src=docs/characters/Character_Bible.md">Characters</a></li>
+          <li><a href="pages/viewer.html?src=docs/setting/Firedog_Setting.md">World & Setting</a></li>
+          <li><a href="pages/viewer.html?src=docs/encounters/Bands_and_Encounters.md">Encounters</a></li>
+          <li><a href="pages/viewer.html?src=docs/missions/Festival_Missions.md">Missions</a></li>
+          <li><a href="pages/viewer.html?src=docs/man-in-red/ManInRed_Dossier.md">Man in Red Dossier</a></li>
+          <li><a href="pages/viewer.html?src=docs/man-in-red/ManInRed_Encounter.md">Man in Red Encounter</a></li>
+          <!-- Outline & Beats -->
+          <li><a href="pages/viewer.html?src=outline/Series_Outline.md">Series Outline</a></li>
+          <li><a href="pages/viewer.html?src=outline/Issue01_BeatSheet.md">Beat Sheet 01</a></li>
+          <li><a href="pages/viewer.html?src=outline/Issue02_BeatSheet.md">Beat Sheet 02</a></li>
+          <li><a href="pages/viewer.html?src=outline/Issue03_BeatSheet.md">Beat Sheet 03</a></li>
+          <li><a href="pages/viewer.html?src=outline/Issue04_BeatSheet.md">Beat Sheet 04</a></li>
+          <li><a href="pages/viewer.html?src=outline/Issue05_BeatSheet.md">Beat Sheet 05</a></li>
+          <!-- Scripts & Production -->
+          <li><a href="pages/viewer.html?src=scripts/format/Comic_Script_Format.md">Script Format</a></li>
+          <li><a href="pages/viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a></li>
+          <li><a href="pages/viewer.html?src=production/Production_Plan.md">Production Plan</a></li>
+          <li><a href="pages/viewer.html?src=legal/Collaboration_Agreement_Template.md">Legal Template</a></li>
+          <li><a href="pages/viewer.html?src=docs/extras/Supplemental_Materials_Plan.md">Extras</a></li>
+          <!-- Research -->
+          <li><a href="pages/viewer.html?src=docs/research/DreamTeam_Research_Inventory.md">Research Brief</a></li>
+          <!-- 90s Extras -->
+          <li><a href="pages/guestbook.html">Guestbook</a></li>
+          <li><a href="pages/links.html">Links</a></li>
+        </ul>
+
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div class="handle">Retro Lounge</div>
+          <div class="tagline">Click around. Mind the dial‑up.</div>
+          <div class="badges">
+            <span class="badge">Animated GIFs</span>
+            <span class="badge">Marquees</span>
+            <span class="badge">Frames</span>
+          </div>
+        </div>
+
+        <div class="player">
+          <h2>Now Playing</h2>
+          <audio controls src=""></audio>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <h1>Start Here</h1>
+      <p>Welcome to the DreamTeam portal. Flip the Retro Mode and surf the docs like it’s 1997. Use the sidebar to open any document in the Viewer.</p>
+
+      <!-- Start Here primary funnel -->
+      <div class="start-here" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0 22px">
+        <div class="card" style="text-align:center">
+          <a class="btn" data-path="docs/bible/DreamTeam_Writers_Book.md" href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Canon One‑Pager 📜</a>
+          <div class="label">Read first</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <a class="btn" data-path="scripts/format/Comic_Script_Format.md" href="pages/viewer.html?src=scripts/format/Comic_Script_Format.md">Script Format Checklist ✍️</a>
+          <div class="label">Format</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <a class="btn" data-path="docs/bible/DreamTeam_Writers_Book.md#h-issue-skeleton" href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book.md#h-issue-skeleton">Issue Skeleton 🧩</a>
+          <div class="label">Template</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <a class="btn" data-path="docs/bible/DreamTeam_Writers_Book.md#h-ambiguity-counter" href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book.md#h-ambiguity-counter">Ambiguity Counter ✅</a>
+          <div class="label">QA</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <a class="btn" data-path="production/Production_Plan.md" href="pages/viewer.html?src=production/Production_Plan.md">Submission Matrix 🗂️</a>
+          <div class="label">Submit</div>
+        </div>
+      </div>
+
+      <div class="top8">
+        <h2>Core Documents</h2>
+        <div class="grid">
+          <div class="card">
+            <a class="btn" data-path="docs/bible/DreamTeam_Writers_Book.md" href="pages/viewer.html?src=docs/bible/DreamTeam_Writers_Book.md">Writer’s Book</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="docs/canon/Canon_Rules.md" href="pages/viewer.html?src=docs/canon/Canon_Rules.md">Canon & Lore</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="docs/characters/Character_Bible.md" href="pages/viewer.html?src=docs/characters/Character_Bible.md">Characters</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="docs/setting/Firedog_Setting.md" href="pages/viewer.html?src=docs/setting/Firedog_Setting.md">World & Setting</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="outline/Series_Outline.md" href="pages/viewer.html?src=outline/Series_Outline.md">Series Outline</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="docs/narrative/Narrative_Structure.md" href="pages/viewer.html?src=docs/narrative/Narrative_Structure.md">Narrative Structure</a>
+          </div>
+          <div class="card">
+            <a class="btn" data-path="scripts/issue-01/Issue01_Script_Sample.md" href="pages/viewer.html?src=scripts/issue-01/Issue01_Script_Sample.md">Script Sample</a>
+          </div>
+          <div class="card">
+            <a class="btn" href="pages/guestbook.html">Guestbook</a>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <details>
+        <summary>Original Hub Content (legacy)</summary>
+        <p>This site previously embedded a very large, merged document here. That content now lives in the Viewer pages above for simpler browsing. Open any item from the Navigation on the left.</p>
+      </details>
+
+      <hr />
+
+      <footer>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+          <div>
+            <span class="badge">Best viewed in Netscape 3.0!</span>
+            <span class="badge">Member of the WebRing</span>
+            <a class="badge" href="mailto:hello@example.com">Email Us ✉️</a>
+          </div>
+          <div>
+            <span>Last updated: <span id="last-updated"></span></span>
+          </div>
+          <div id="hit-counter" class="seven-seg" title="Site hits">000000</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/hit-counter.js"></script>
+</body>
+</html>

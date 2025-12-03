@@ -1,0 +1,162 @@
+/* 90s Retro Theme (activated when body.hasClass('retro') or retro.css is loaded)
+   - Tiled backgrounds (starfield, clouds)
+   - Neon links, beveled buttons
+   - Marquee polish + blink simulation
+   - Framed content box
+   - Tiny inline base64 badges (placeholders)
+*/
+
+/* Base toggle */
+body.retro,
+body.retro * {
+  image-rendering: pixelated;
+}
+
+/* Tiled background choices */
+body.retro {
+  /* Default to starfield, can switch via .retro.clouds */
+  --retro-bg: url("data:image/gif;base64,R0lGODlhEAAQAPcAAB8fH2ZmZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAEALAAAAAAQABAAAAj/APcJHEiwoMGDCBMqXMiwYMGECUuWPHkyZMiQocOHEB9dQ1sIhQIAOw==");
+  background: #000 var(--retro-bg) repeat;
+  color: #cfe6ff;
+}
+
+body.retro.clouds {
+  --retro-bg: url("data:image/gif;base64,R0lGODlhEAAQAPQAAP///8DAwNfX19TU1NjY2N7e3t/f39XV1eLi4uPj4+bm5u7u7v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAUALAAAAAAQABAAAAWn4CeOZGmeaKqubOu+cCzPdFADQKqgCBBaBQgJQkQwYh8E2mQp0qYwWJpFDo5wzLQ0R6kQ4HACqHqgqKUBQ9b0lK0t2b3qU6B4VQyF2QG5dsjP8EUw3Z0bQWBCQCAQwA7");
+  background: #9ecbff var(--retro-bg) repeat;
+  color: #10243a;
+}
+
+/* Content frame */
+body.retro main {
+  border: 3px ridge #c0c0c0;
+  background: #001122cc;
+  padding: 18px 22px 90px;
+}
+
+/* Neon links */
+body.retro a {
+  color: #39ff14;
+  text-shadow: 0 0 6px #39ff14, 0 0 10px #00ffea;
+}
+body.retro a:visited {
+  color: #ff66ff;
+}
+body.retro a:hover {
+  color: #ffff00;
+  text-shadow: 0 0 6px #ffff00;
+}
+
+/* Beveled buttons */
+body.retro .btn, body.retro button {
+  background: #c0c0c0;
+  color: #000;
+  border: 3px outset #fff;
+  padding: 8px 12px;
+  box-shadow: none;
+  font-weight: 700;
+}
+body.retro .btn:active, body.retro button:active {
+  border: 3px inset #fff;
+}
+
+/* Marquee polish */
+body.retro .marquee {
+  border-top: 2px solid #00ffff66;
+  border-bottom: 2px solid #ff00ff66;
+  background: #00111d;
+}
+body.retro .marquee-track {
+  color: #9ff1ff;
+  text-shadow: 0 0 6px #00e5ff;
+}
+
+/* Blink simulation */
+@keyframes retro-blink { 50% { opacity: 0; } }
+body.retro .blink {
+  animation: retro-blink 1s steps(1, end) infinite;
+}
+
+/* Sidebar nav look */
+body.retro .aside {
+  background: #001a33;
+  border-right: 4px double #66ccff;
+}
+body.retro #toc a {
+  border: 1px solid #66ccff55;
+  background: linear-gradient(180deg, #002a4d, #001a33);
+}
+
+/* Footer badges look */
+body.retro .badge {
+  background: linear-gradient(180deg,#224,#112);
+  border:2px groove #89b;
+  color:#cfe6ff;
+  padding: 3px 6px;
+}
+
+/* Seven segment hit counter tweak */
+body.retro .seven-seg {
+  background:#001100;
+  border: 3px ridge #0f0;
+  color:#57ff57;
+  text-shadow: 0 0 8px #19ff19;
+}
+
+/* Under Construction flair (CSS placeholder if no GIF) */
+body.retro .under-construction {
+  display:inline-block;
+  padding: 6px 10px;
+  border: 3px dashed #ff0;
+  background: #220;
+  color: #ff0;
+  font-weight: 900;
+}
+
+/* Tiny inline base64 “NEW” badge example */
+body.retro .badge-new {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 6px;
+  border:2px ridge #fc0;
+  background:#330;
+  color:#fc0;
+}
+body.retro .badge-new::before{
+  content:"";
+  inline-size:12px; block-size:12px;
+  background-image:url("data:image/gif;base64,R0lGODlhDAAMAIABAP//AP///yH5BAEAAAEALAAAAAAMAAwAAAIUhI+py+0Po5w1WqsruwUAOw==");
+  background-size:cover;
+  display:inline-block;
+}
+
+/* Email “GIF” placeholder */
+body.retro .email-gif::before{
+  content:"📧";
+  margin-right:6px;
+}
+
+/* Content boxes */
+body.retro details, body.retro .card, body.retro .profile-card, body.retro .player {
+  border: 3px ridge #c0c0c0 !important;
+  background: #001b2d !important;
+}
+
+/* 90s bullets */
+body.retro ul li::marker {
+  content: "✦ ";
+  color: #0ff;
+}
+
+/* Tables (guestbook) */
+body.retro table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #001826;
+  color: #cfe6ff;
+  border: 3px ridge #88aacc;
+}
+body.retro th, body.retro td {
+  border: 2px inset #88aacc;
+  padding: 6px 8px;
+}
